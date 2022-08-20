@@ -41,13 +41,16 @@ function NewCarFormComponent(props) {
           plate_no: "",
           plate_str: "",
           last_maintenance_date: "",
+          qrString: "",
         }}
-        // validationSchema={Yup.object().shape({
-        //     firstName: Yup.string().required('First Name is required'),
-        //     lastName: Yup.string().required('Last Name is required'),
-        //     email: Yup.string().email('Email is invalid') .required('Email is required'),
-
-        // })}
+        validationSchema={Yup.object().shape({
+          plate_no: Yup.string().required("plate number is required"),
+          plate_str: Yup.string().required("plate string is required"),
+          last_maintenance_date: Yup.string().required("date is required"),
+          qrString: Yup.string()
+            .min(25, "Must be at least 25 character")
+            .required("QR String is required"),
+        })}
         onSubmit={(fields) => {
           // alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
           submit_form(fields);
@@ -138,7 +141,7 @@ function NewCarFormComponent(props) {
                           <ErrorMessage
                             name="plate_no"
                             component="div"
-                            className="invalid-feedback"
+                            className="invalid-feedback-admin"
                           />
                         </div>
                       </div>
@@ -164,7 +167,7 @@ function NewCarFormComponent(props) {
                           <ErrorMessage
                             name="plate_str"
                             component="div"
-                            className="invalid-feedback"
+                            className="invalid-feedback-admin"
                           />
                         </div>
                       </div>
@@ -179,7 +182,7 @@ function NewCarFormComponent(props) {
                   >
                     <Col md="7" lg="12">
                       <label className="form_text form_label">
-                        Last maintainance date
+                        Last maintenance date
                       </label>
                     </Col>
                     <Col md="5" lg="12" className="mb-3">
@@ -212,6 +215,24 @@ function NewCarFormComponent(props) {
                         }}
                       </Field>
                       {/* <ErrorMessage name='birth_date' component={TextError} /> */}
+                    </Col>
+                  </Row>
+                </Container>
+
+                <Container>
+                  <Row
+                    className="justify-content-end my-5 date_card"
+                    style={{ maxWidth: "400px", margin: "20px auto 20px auto" }}
+                  >
+                    <Col md="7" lg="12">
+                      <label className="form_text form_label">QR String</label>
+                    </Col>
+                    <Col md="5" lg="12" className="mb-3">
+                      <Field
+                        name={`qrString`}
+                        className="form-control in_field"
+                      ></Field>
+                      <ErrorMessage name="qrString" />
                     </Col>
                   </Row>
                 </Container>

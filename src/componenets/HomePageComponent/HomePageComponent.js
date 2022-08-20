@@ -30,7 +30,7 @@ const rows = [
 ];
 
 function HomePageComponent() {
-  const maintainance_period = 30; // max time for maintainance gap in days TODO: fetch this value from the db
+  const maintenance_period = 30; // max time for maintenance gap in days TODO: fetch this value from the db
 
   const {
     isLoading: CarsIsLoading,
@@ -75,7 +75,7 @@ function HomePageComponent() {
                 ) : (
                   <TableComponent
                     rows={LoadedCars.data}
-                    maintainance_period={maintainance_period}
+                    maintenance_period={maintenance_period}
                   />
                 )}
               </div>
