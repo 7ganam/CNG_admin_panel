@@ -46,8 +46,10 @@ function TableComponent(props) {
                   </TableCell>
                   <TableCell align="right">{last_maint_date}</TableCell>
                   <TableCell align="right">
-                    {date_diff < props.maintainance_period ? (
-                      props.maintainance_period - date_diff
+                    {date_diff <
+                    (row?.maintenance_period || props.maintainance_period) ? (
+                      (row?.maintenance_period || props.maintainance_period) -
+                      date_diff
                     ) : (
                       <Button variant="outlined" color="error">
                         Needs maintainence

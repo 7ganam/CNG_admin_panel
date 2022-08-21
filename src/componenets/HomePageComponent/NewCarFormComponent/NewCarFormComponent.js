@@ -42,6 +42,7 @@ function NewCarFormComponent(props) {
           plate_str: "",
           last_maintenance_date: "",
           qrString: "",
+          maintenance_period: 10,
         }}
         validationSchema={Yup.object().shape({
           plate_no: Yup.string().required("plate number is required"),
@@ -215,6 +216,31 @@ function NewCarFormComponent(props) {
                         }}
                       </Field>
                       {/* <ErrorMessage name='birth_date' component={TextError} /> */}
+                    </Col>
+                  </Row>
+                </Container>
+
+                <Container>
+                  <Row
+                    className="justify-content-end my-5 date_card"
+                    style={{ maxWidth: "400px", margin: "20px auto 20px auto" }}
+                  >
+                    <Col md="7" lg="12">
+                      <label className="form_text form_label">
+                        Maintenance Period (in days)
+                      </label>
+                    </Col>
+                    <Col md="5" lg="12" className="mb-3">
+                      <Field
+                        style={{
+                          width: "100%",
+                        }}
+                        name={`maintenance_period`}
+                        className="form-control in_field"
+                        type={"number"}
+                        min="10"
+                      ></Field>
+                      <ErrorMessage name="qrString" />
                     </Col>
                   </Row>
                 </Container>
