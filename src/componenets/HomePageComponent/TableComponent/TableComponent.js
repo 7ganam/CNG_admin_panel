@@ -22,7 +22,7 @@ function TableComponent(props) {
               <TableCell align="right">Latest&nbsp;maintainence</TableCell>
               <TableCell align="right">Remaining Days</TableCell>
               <TableCell align="right">QR string</TableCell>
-              <TableCell align="right">Maintainer note</TableCell>
+              <TableCell align="right">Charger note</TableCell>
               <TableCell align="right">Maintenance period</TableCell>
             </TableRow>
           </TableHead>
@@ -68,7 +68,7 @@ function TableComponent(props) {
                     scope="row"
                     style={{ textAlign: "right" }}
                   >
-                    {row?.maintainer_note ?? ""}
+                    {row?.charger_note ?? ""}
                   </TableCell>
                   <TableCell
                     component="th"
